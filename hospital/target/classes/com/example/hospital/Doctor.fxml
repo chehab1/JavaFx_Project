@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="469.0" prefWidth="816.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hospital.Doctor">
+   <children>
+      <Button layoutX="84.0" layoutY="59.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="187.0" style="-fx-background-color: rgb(15,157,88);" text="Calculate Overtime" textFill="WHITE">
+         <font>
+            <Font name="Microsoft Sans Serif" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="546.0" layoutY="59.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="187.0" style="-fx-background-color: rgb(15,157,88);" text="Schedule Surgery" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="95.0" layoutY="308.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="654.0" style="-fx-background-color: rgb(15,157,88);" text="View Data" textFill="WHITE">
+         <font>
+            <Font name="Microsoft Sans Serif" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="316.0" layoutY="59.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="187.0" style="-fx-background-color: rgb(15,157,88);" text="Remaining Vacation Days" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="114.0" layoutY="153.0" text="Patients:" textFill="GREY">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Button layoutX="760.0" layoutY="417.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="26.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <FontAwesomeIconView fill="#0f9d58" glyphName="POWER_OFF" size="30" />
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>
