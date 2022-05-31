@@ -34,9 +34,9 @@ public class HelloController {
     public void clickLogin(ActionEvent event) throws IOException {
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Moderator.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Doctor.fxml"));
             Parent moderatorScreen = fxmlLoader.load();
-            ModeratorController controller = fxmlLoader.getController();
+            DoctorController controller = fxmlLoader.getController();
             Scene scene = new Scene(moderatorScreen);
             stage.setScene(scene);
             stage.show();

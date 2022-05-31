@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="418.0" prefWidth="393.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hospital.SurgeryController">
+   <children>
+      <Label layoutX="78.0" layoutY="109.0" text="Date:" textFill="#6b6868">
+         <font>
+            <Font name="Microsoft Sans Serif" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="76.0" layoutY="182.0" text="Room:" textFill="#6b6868">
+         <font>
+            <Font name="Microsoft Sans Serif" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="76.0" layoutY="253.0" text="Price:" textFill="#6b6868">
+         <font>
+            <Font name="Microsoft Sans Serif" size="15.0" />
+         </font>
+      </Label>
+      <DatePicker layoutX="145.0" layoutY="105.0" prefHeight="25.0" prefWidth="184.0" />
+      <TextField layoutX="145.0" layoutY="177.0" prefHeight="25.0" prefWidth="184.0" />
+      <TextField layoutX="145.0" layoutY="248.0" prefHeight="25.0" prefWidth="184.0" />
+      <Button layoutX="145.0" layoutY="312.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="184.0" style="-fx-background-color: rgb(15,157,88); -fx-font-weight: bolder;" text="Schedule" textFill="WHITE">
+         <font>
+            <Font name="Microsoft Sans Serif" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="67.0" layoutY="313.0" mnemonicParsing="false" onAction="#clickLogout" prefHeight="33.0" prefWidth="27.0" style="-fx-background-color: transparent;" textFill="WHITE">
+         <graphic>
+            <FontAwesomeIconView fill="#0f9d58" glyphName="ARROW_LEFT" size="30" wrappingWidth="25.428571701049805" />
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>
