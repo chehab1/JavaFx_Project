@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="402.0" style="-fx-background-color: rgb(255,255,255);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hospital.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="402.0" style="-fx-background-color: rgb(255,255,255);" xmlns="http://javafx.com/javafx/17.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hospital.HelloController">
    <children>
       <ImageView fitHeight="203.0" fitWidth="142.0" layoutX="136.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -26,8 +26,8 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="username" layoutX="42.0" layoutY="344.0" prefHeight="25.0" prefWidth="319.0" />
-      <PasswordField fx:id="password" layoutX="42.0" layoutY="400.0" prefHeight="25.0" prefWidth="319.0" />
+      <TextField fx:id="emailText" layoutX="42.0" layoutY="344.0" prefHeight="25.0" prefWidth="319.0" />
+      <PasswordField fx:id="passText" layoutX="42.0" layoutY="400.0" prefHeight="25.0" prefWidth="319.0" />
       <Button layoutX="41.0" layoutY="455.0" mnemonicParsing="false" onAction="#clickLogin" prefHeight="37.0" prefWidth="319.0" style="-fx-background-color: rgb(15,157,88); -fx-font-weight: Bolder;" text="Login" textFill="WHITE">
          <font>
             <Font name="Microsoft Sans Serif" size="17.0" />

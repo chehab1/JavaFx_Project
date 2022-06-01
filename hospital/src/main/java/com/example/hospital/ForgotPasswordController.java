@@ -6,8 +6,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -30,5 +32,10 @@ public class ForgotPasswordController implements Initializable
         Scene scene = new Scene(helloScreen);
         stage.setScene(scene);
         stage.show();
+    }
+    @FXML
+    private void clickSendPassword(ActionEvent event)
+    {
+        AlertBox.display("Done","Email sent successfully");
     }
 }

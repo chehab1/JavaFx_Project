@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hospital.TechController">
+   <children>
+      <Button layoutX="68.0" layoutY="60.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="206.0" style="-fx-background-color: rgb(15,157,88);" text="Calculate overtime" textFill="WHITE">
+         <font>
+            <Font name="Microsoft Sans Serif" size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="327.0" layoutY="60.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="206.0" style="-fx-background-color: rgb(15,157,88);" text="Remaining vacation days" textFill="WHITE">
+         <font>
+            <Font name="Microsoft Sans Serif" size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="544.0" layoutY="348.0" mnemonicParsing="false" onAction="#clickLogout" style="-fx-background-color: transparent;">
+         <graphic>
+            <FontAwesomeIconView fill="#0f9d58" glyphName="POWER_OFF" size="30" />
+         </graphic>
+      </Button>
+      <Label layoutX="68.0" layoutY="139.0" text="Technicians please go to your assigned rooms:" textFill="#5b5b5b">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

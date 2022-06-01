@@ -1,6 +1,6 @@
 package com.company;
 
-public class nurse extends staff{
+public class nurse extends staff implements iStaff{
     @Override
     public double calculateOvertime(int overtime)
     {

@@ -1,6 +1,7 @@
 package com.example.hospital;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -26,6 +27,16 @@ public class ModeratorController implements Initializable {
         Parent helloScreen = fxmlLoader.load();
         HelloController controller = fxmlLoader.getController();
         Scene scene = new Scene(helloScreen);
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    public void clickAddMember(ActionEvent event) throws IOException {
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AddMember.fxml"));
+        Parent moderatorScreen = fxmlLoader.load();
+        AddMemberController controller = fxmlLoader.getController();
+        Scene scene = new Scene(moderatorScreen);
         stage.setScene(scene);
         stage.show();
     }

@@ -7,14 +7,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SurgeryController implements Initializable {
+public class TechController implements Initializable {
     private Stage stage;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -23,18 +22,11 @@ public class SurgeryController implements Initializable {
     @FXML
     public void clickLogout(ActionEvent event) throws IOException {
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Doctor.fxml"));
-        Parent doctorScreen = fxmlLoader.load();
-        DoctorController controller = fxmlLoader.getController();
-        Scene scene = new Scene(doctorScreen);
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        Parent helloScreen = fxmlLoader.load();
+        HelloController controller = fxmlLoader.getController();
+        Scene scene = new Scene(helloScreen);
         stage.setScene(scene);
         stage.show();
-    }
-    @FXML
-    public void schedule(ActionEvent event)
-    {
-        stage= (Stage) ((Node)event.getSource()).getScene().getWindow();
-        AlertBox.display("Done","Surgery booked");
-
     }
 }

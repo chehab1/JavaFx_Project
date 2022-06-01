@@ -1,6 +1,6 @@
 package com.company;
 
-public class doctor extends staff{
+public class doctor extends staff implements iStaff{
     private String speciality;
 
     @Override
