@@ -14,6 +14,8 @@ import java.sql.*;
 
 import java.io.IOException;
 
+import static com.example.hospital.ConnectionEstablish.con;
+
 public class HelloController {
     private Stage stage;
     @FXML
@@ -40,7 +42,7 @@ public class HelloController {
 
 
         try{
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbctest","root","chehabhatesjava");
+            ConnectionEstablish.connect();
             Statement statement = con.createStatement();
             String q = "SELECT * FROM login where email = '"+ username + "'";
             ResultSet set = statement.executeQuery(q);
