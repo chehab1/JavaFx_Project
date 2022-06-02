@@ -1,5 +1,6 @@
 package com.example.hospital;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -20,12 +21,14 @@ public class AlertBox {
         stage.setMinHeight(150);
 
         Label label = new Label(message);
+        label.setAlignment(Pos.CENTER);
         Button bt = new Button("Ok!");
         bt.setOnAction(event -> {
             stage.close();
         });
 
         VBox vbox = new VBox();
+        vbox.setPadding(new Insets(10,10,10,10));
         vbox.getChildren().add(label);
         vbox.getChildren().add(bt);
         vbox.setAlignment(Pos.CENTER);

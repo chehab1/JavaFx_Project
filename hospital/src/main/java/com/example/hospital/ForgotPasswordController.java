@@ -7,12 +7,18 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
+
+import static com.example.hospital.ConnectionEstablish.con;
 
 public class ForgotPasswordController implements Initializable
 {
@@ -34,8 +40,27 @@ public class ForgotPasswordController implements Initializable
         stage.show();
     }
     @FXML
+    private TextField forgetPassText;
+    @FXML
     private void clickSendPassword(ActionEvent event)
     {
-        AlertBox.display("Done","Email sent successfully");
+        String username = forgetPassText.getText();
+        try {
+            ConnectionEstablish.connect();
+            Statement statement = con.createStatement();
+            String q = "select * from login where email='" + username+ "'";
+            ResultSet set = statement.executeQuery(q);
+            if(set.next()==true)
+            {
+                AlertBox.display("Successful","An email with the password was sent to your email!");
+            }
+            else
+            {
+                AlertBox.display("Unsuccessful","This user is not registered!");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 }

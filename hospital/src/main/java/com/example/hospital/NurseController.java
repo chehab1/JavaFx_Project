@@ -29,4 +29,9 @@ public class NurseController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+
+    private String username;
+    public void sendData(String username) {
+        this.username = username;
+    }
 }

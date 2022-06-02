@@ -42,4 +42,8 @@ public class ModeratorController implements Initializable {
     }
 
 
+    private String username;
+    public void sendData(String username) {
+        this.username = username;
+    }
 }

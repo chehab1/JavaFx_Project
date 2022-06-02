@@ -6,9 +6,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+
+import java.io.InterruptedIOException;
 import java.sql.*;
 
 
@@ -23,45 +27,95 @@ public class HelloController {
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Forgot_Password.fxml"));
         Parent forgetPasswordScreen = fxmlLoader.load();
-
         ForgotPasswordController controller = fxmlLoader.getController();
         Scene scene = new Scene(forgetPasswordScreen);
         stage.setScene(scene);
         stage.show();
-
     }
     @FXML
     private TextField emailText;
     @FXML
     private PasswordField passText;
     @FXML
-    public void clickLogin(ActionEvent event) throws IOException {
+    private Label loginFailed1;
+    @FXML
+    private Label loginFailed2;
+    @FXML
+    private Label loginFailed3;
+    @FXML
+    public void clickLogin(ActionEvent event) throws IOException, SQLException {
 
         String username=emailText.getText();
         String password=passText.getText();
 
-
         try{
+            if(username.equals("") || password.equals(""))
+            {
+                throw new EmptyLoginException(loginFailed1,loginFailed2);
+            }
             ConnectionEstablish.connect();
             Statement statement = con.createStatement();
-            String q = "SELECT * FROM login where email = '"+ username + "'";
+            String q = "select * from login where email='" + username + "'" + " and password = '" + password + "'";
             ResultSet set = statement.executeQuery(q);
-            while(set.next()){
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Moderator.fxml"));
-                Parent moderatorScreen = fxmlLoader.load();
-                ModeratorController controller = fxmlLoader.getController();
-                Scene scene = new Scene(moderatorScreen);
-                stage.setScene(scene);
-                stage.show();
-                AlertBox.display(username,"chceh");
+
+            if(set.next()){
+                if(username.contains("Dr") || username.contains("dr"))
+                {
+                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Doctor.fxml"));
+                    Parent doctorScreen = fxmlLoader.load();
+                    DoctorController controller = fxmlLoader.getController();
+                    controller.sendData(username);
+                    Scene scene = new Scene(doctorScreen);
+                    stage.setScene(scene);
+                    stage.show();
+                    con.close();
+                }
+                else if(username.contains("Nurse") || username.contains("nurse"))
+                {
+                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Nurse.fxml"));
+                    Parent nurseScreen = fxmlLoader.load();
+                    NurseController controller = fxmlLoader.getController();
+                    controller.sendData(username);
+                    Scene scene = new Scene(nurseScreen);
+                    stage.setScene(scene);
+                    stage.show();
+                    con.close();
+
+                }
+                else if(username.contains("Tech") || username.contains("tech"))
+                {
+                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Tech.fxml"));
+                    Parent techScreen = fxmlLoader.load();
+                    TechController controller = fxmlLoader.getController();
+                    controller.sendData(username);
+                    Scene scene = new Scene(techScreen);
+                    stage.setScene(scene);
+                    stage.show();
+                    con.close();
+
+                }
+                else if(username.contains("Moderator") || username.contains("moderator"))
+                {
+                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Moderator.fxml"));
+                    Parent moderatorScreen = fxmlLoader.load();
+                    ModeratorController controller = fxmlLoader.getController();
+                    controller.sendData(username);
+                    Scene scene = new Scene(moderatorScreen);
+                    stage.setScene(scene);
+                    stage.show();
+                    con.close();
+                }
+            }else{
+                throw new InvalidLoginException(loginFailed3);
             }
 
         }
         catch(Exception e){
-            e.printStackTrace();
+//            con.close();
         }
-
-
     }
 }
