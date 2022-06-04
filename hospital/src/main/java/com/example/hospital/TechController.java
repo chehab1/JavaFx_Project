@@ -7,11 +7,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
+
+import static com.example.hospital.ConnectionEstablish.con;
 
 public class TechController implements Initializable {
     private Stage stage;
@@ -30,8 +36,51 @@ public class TechController implements Initializable {
         stage.show();
     }
 
+    @FXML
+    private Label techName;
+    @FXML
+    private Label room;
     private String username;
-    public void sendData(String username) {
-        this.username = username;
+    private String name;
+    public void sendData(String name) throws SQLException {
+        this.name = name;
+        ConnectionEstablish.connect();
+        Statement statement = con.createStatement();
+        String q = "select * from techform where name='" + name + "'";
+        ResultSet set = statement.executeQuery(q);
+        if(set.next()){
+            techName.setText(name);
+            room.setText(Integer.toString(set.getInt("room")));
+        }
+        con.close();    }
+
+    @FXML
+    public void calculateRemainingDays(ActionEvent event) throws SQLException {
+        ConnectionEstablish.connect();
+        Statement statement = con.createStatement();
+        String q = "select * from login where name='" + name + "'";
+        ResultSet set = statement.executeQuery(q);
+        if(set.next())
+        {
+            AlertBox.display(" Vacation Days ","Remaining Vacation Days Are : "+set.getInt("VcationDays"));
+        }
+        con.close();
     }
+
+    @FXML
+    public void calculateOvertime(ActionEvent event) throws SQLException {
+        tech t = new tech();
+        //create object of tech
+        ConnectionEstablish.connect();
+        Statement statement = con.createStatement();
+        String q = "select * from login where name='" + name + "'";
+        ResultSet set = statement.executeQuery(q);
+        if(set.next())
+        {
+            int money = t.staffCalculateOvertime(set.getInt("overtimeDays"));
+            AlertBox.display(" Overtime","Total overtime salary : "+money);
+        }
+        con.close();
+    }
+
 }

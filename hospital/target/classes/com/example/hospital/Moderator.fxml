@@ -5,24 +5,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="491.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hospital.ModeratorController">
+<AnchorPane prefHeight="417.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hospital.ModeratorController">
    <children>
-      <Button layoutX="51.0" layoutY="116.0" mnemonicParsing="false" onAction="#clickAddMember" prefHeight="53.0" prefWidth="239.0" style="-fx-background-color: rgb(15,157,88); -fx-font-weight: bolder;" text="Add Staff" textFill="WHITE">
+      <Button layoutX="52.0" layoutY="58.0" mnemonicParsing="false" onAction="#clickAddMember" prefHeight="53.0" prefWidth="239.0" style="-fx-background-color: rgb(15,157,88); -fx-font-weight: bolder;" text="Add Staff" textFill="WHITE">
          <font>
             <Font name="Microsoft Sans Serif" size="15.0" />
          </font>
       </Button>
-      <Button layoutX="51.0" layoutY="221.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="239.0" style="-fx-background-color: rgb(15,157,88); -fx-font-weight: bolder;" text="Remove Staff" textFill="WHITE">
+      <Button layoutX="52.0" layoutY="143.0" mnemonicParsing="false" onAction="#removeMember" prefHeight="53.0" prefWidth="239.0" style="-fx-background-color: rgb(15,157,88); -fx-font-weight: bolder;" text="Remove Staff" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button layoutX="51.0" layoutY="323.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="239.0" style="-fx-background-color: rgb(15,157,88); -fx-font-weight: bolder;" text="Monthly Reset" textFill="WHITE">
+      <Button layoutX="51.0" layoutY="232.0" mnemonicParsing="false" onAction="#clickReset" prefHeight="53.0" prefWidth="239.0" style="-fx-background-color: rgb(15,157,88); -fx-font-weight: bolder;" text="Yearly Reset" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button layoutX="148.0" layoutY="410.0" mnemonicParsing="false" onAction="#clickLogout" prefHeight="43.0" prefWidth="38.0" style="-fx-background-color: transparent;" textFill="WHITE">
+      <Button layoutX="147.0" layoutY="314.0" mnemonicParsing="false" onAction="#clickLogout" prefHeight="43.0" prefWidth="38.0" style="-fx-background-color: transparent;" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>

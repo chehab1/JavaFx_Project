@@ -40,13 +40,13 @@
             <Font name="Microsoft Sans Serif" size="15.0" />
          </font>
       </Button>
-      <RadioButton layoutX="53.0" layoutY="112.0" mnemonicParsing="false" text="Doctor">
+      <RadioButton fx:id="doctorRadio" layoutX="53.0" layoutY="112.0" mnemonicParsing="false" onAction="#specialtyEnable" text="Doctor">
          <toggleGroup>
             <ToggleGroup fx:id="staffMember" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="146.0" layoutY="112.0" mnemonicParsing="false" text="Nurse" toggleGroup="$staffMember" />
-      <RadioButton layoutX="230.0" layoutY="112.0" mnemonicParsing="false" text="Technician" toggleGroup="$staffMember" />
+      <RadioButton fx:id="nurseRadio" layoutX="146.0" layoutY="112.0" mnemonicParsing="false" onAction="#specialtyDisable" text="Nurse" toggleGroup="$staffMember" />
+      <RadioButton fx:id="techRadio" layoutX="230.0" layoutY="112.0" mnemonicParsing="false" onAction="#specialtyDisable" text="Technician" toggleGroup="$staffMember" />
       <Button layoutX="46.0" layoutY="343.0" mnemonicParsing="false" onAction="#BackButton" style="-fx-background-color: transparent;">
          <graphic>
             <FontAwesomeIconView fill="#0f9d58" glyphName="ARROW_LEFT" size="25" />

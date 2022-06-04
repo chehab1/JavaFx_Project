@@ -2,7 +2,7 @@ package com.company;
 
 public class tech extends staff implements iStaff{
     @Override
-    public double calculateOvertime(int overtimeDays) {
-        return this.overtimeDays*100;
+    public double staffCalculateOvertime(int overtimeDays) {
+        return this.staffOvertimeDays*100;
     }
 }

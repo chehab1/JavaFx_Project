@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="270.0" prefWidth="776.0" stylesheets="style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hospital.ViewDataController">
+   <children>
+      <Label fx:id="name" layoutX="50.0" layoutY="73.0" styleClass="LabelDesign" stylesheets="@style.css" text="Name">
+         <font>
+            <Font name="Microsoft Sans Serif" size="20.0" />
+         </font></Label>
+      <Label fx:id="age" layoutX="200.0" layoutY="73.0" styleClass="LabelDesign" stylesheets="@style.css" text="Age">
+         <font>
+            <Font name="Microsoft Sans Serif" size="20.0" />
+         </font></Label>
+      <Label fx:id="firstTime" layoutX="350.0" layoutY="73.0" styleClass="LabelDesign" stylesheets="@style.css" text="FirstTime?">
+         <font>
+            <Font name="Microsoft Sans Serif" size="20.0" />
+         </font></Label>
+      <Label fx:id="symptoms" layoutX="500.0" layoutY="73.0" styleClass="LabelDesign" stylesheets="@style.css" text="Symptoms">
+         <font>
+            <Font name="Microsoft Sans Serif" size="20.0" />
+         </font></Label>
+      <Label fx:id="gender" layoutX="650.0" layoutY="73.0" styleClass="LabelDesign" stylesheets="@style.css" text="Gender">
+         <font>
+            <Font name="Microsoft Sans Serif" size="20.0" />
+         </font></Label>
+      <Label fx:id="pName" layoutX="50.0" layoutY="149.0" styleClass="LabelDesign" stylesheets="@style.css" text="Name" textFill="#c60000">
+         <font>
+            <Font name="Microsoft Sans Serif" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="pAge" layoutX="200.0" layoutY="149.0" styleClass="LabelDesign" stylesheets="@style.css" text="Age" textFill="#c60000">
+         <font>
+            <Font name="Microsoft Sans Serif" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="pFirstTime" layoutX="350.0" layoutY="149.0" styleClass="LabelDesign" stylesheets="@style.css" text="FirstTime?" textFill="#c60000">
+         <font>
+            <Font name="Microsoft Sans Serif" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="pSymptoms" layoutX="500.0" layoutY="149.0" styleClass="LabelDesign" stylesheets="@style.css" text="Symptoms" textFill="#c60000">
+         <font>
+            <Font name="Microsoft Sans Serif" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="pGender" layoutX="650.0" layoutY="149.0" styleClass="LabelDesign" stylesheets="@style.css" text="Gender" textFill="#c60000">
+         <font>
+            <Font name="Microsoft Sans Serif" size="18.0" />
+         </font>
+      </Label>
+      <Separator layoutX="52.0" layoutY="118.0" prefHeight="8.0" prefWidth="674.0" />
+   </children>
+</AnchorPane>

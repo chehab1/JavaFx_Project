@@ -1,14 +1,15 @@
 package com.company;
 
 public  abstract class staff {
-     String name;
-     int remainingVacationDays=30;
-     int overtimeDays;
+     String staffMemberName;
+     int staffVacationDays=30;
+     int staffOvertimeDays;
 
 
-    public int calculateRemainingVacationDays()
+    public int staffCalculateVDays()
     {
-        return remainingVacationDays;
+
+        return 0;
     }
 
 }

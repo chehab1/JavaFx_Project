@@ -58,14 +58,16 @@ public class HelloController {
             String q = "select * from login where email='" + username + "'" + " and password = '" + password + "'";
             ResultSet set = statement.executeQuery(q);
 
+
             if(set.next()){
+                String name = set.getString("name");
                 if(username.contains("Dr") || username.contains("dr"))
                 {
                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Doctor.fxml"));
                     Parent doctorScreen = fxmlLoader.load();
                     DoctorController controller = fxmlLoader.getController();
-                    controller.sendData(username);
+                    controller.sendData(username,set.getString("speciality"));
                     Scene scene = new Scene(doctorScreen);
                     stage.setScene(scene);
                     stage.show();
@@ -77,7 +79,7 @@ public class HelloController {
                     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Nurse.fxml"));
                     Parent nurseScreen = fxmlLoader.load();
                     NurseController controller = fxmlLoader.getController();
-                    controller.sendData(username);
+                    controller.sendData(name);
                     Scene scene = new Scene(nurseScreen);
                     stage.setScene(scene);
                     stage.show();
@@ -90,7 +92,7 @@ public class HelloController {
                     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Tech.fxml"));
                     Parent techScreen = fxmlLoader.load();
                     TechController controller = fxmlLoader.getController();
-                    controller.sendData(username);
+                    controller.sendData(name);
                     Scene scene = new Scene(techScreen);
                     stage.setScene(scene);
                     stage.show();
@@ -115,7 +117,6 @@ public class HelloController {
 
         }
         catch(Exception e){
-//            con.close();
         }
     }
 }

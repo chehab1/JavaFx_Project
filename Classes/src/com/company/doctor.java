@@ -1,11 +1,11 @@
 package com.company;
 
 public class doctor extends staff implements iStaff{
-    private String speciality;
+    private String drSpeciality;
 
     @Override
-    public double calculateOvertime(int overtimeDays)
+    public double staffCalculateOvertime(int overtimeDays)
     {
-        return this.overtimeDays*250;
+        return this.staffOvertimeDays*250;
     }
 }

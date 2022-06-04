@@ -51,35 +51,49 @@ public class AddMemberController implements Initializable {
     private PasswordField passText;
     @FXML
     public void clickAdd(ActionEvent event) throws IOException, SQLException {
-        String name = nameText.getText();
+        String Name = nameText.getText();
         String specialty = specialtyText.getText();
         String password = passText.getText();
         try{
-            if(name=="" || password=="")
+            if(Name=="" || password=="")
             {
             throw new NullPointerException();
             }
             else if(doctorRadio.isSelected())
             {
+                doctor dr = new doctor();
+                //create object of doctor
+                dr.setStaffMemberName(Name);
+                dr.setDrSpeciality(specialty);
                 ConnectionEstablish.connect();
                 Statement statement = con.createStatement();
-                String q = "Insert into  login (name,email,password,speciality,overtimeDays,VcationDays) VALUES( '"+name+"','" +"Dr"+name+ "@hospital.com','"+password+"','" + specialty + "','"+0+"','" + 30 + "')";
+                String q = "Insert into  login (speciality,name,email,password,overtimeDays,VcationDays) VALUES('"+dr.getDrSpeciality()+"','"+dr.getStaffMemberName()+"','" +"Dr"+Name+ "@hospital.com','"+password+"','"+0+"','" + 30 + "')";
                 statement.executeUpdate(q);
+//                String q2 = "Insert into login (name,speciality) VALUES('"+dr.getStaffMemberName()+"','"+dr.getDrSpeciality()+"')";
+//                statement.executeUpdate(q2);
                 AlertBox.display("Successful!","Doctor added Successfully!");
             }
             else  if(nurseRadio.isSelected())
             {
+                nurse nr = new nurse();
+                //create object of nurse
+                nr.setStaffMemberName(Name);
+                nr.setStaffVacationDays(30);
                 ConnectionEstablish.connect();
                 Statement statement = con.createStatement();
-                String q = "Insert into  login (name,email,password,overtimeDays,VcationDays) VALUES( '"+name+"','" +"Nurse"+name+ "@hospital.com','"+password+"','"+0+"','" + 30 + "')";
+                String q = "Insert into  login (name,email,password,overtimeDays,VcationDays) VALUES( '"+nr.getStaffMemberName()+"','" +"Nurse"+nr.getStaffMemberName()+ "@hospital.com','"+password+"','"+0+"','" + nr.getStaffVacationDays() + "')";
                 statement.executeUpdate(q);
                 AlertBox.display("Successful!","Nurse added Successfully!");
             }
             else if(techRadio.isSelected())
             {
+                tech t = new tech();
+                //create object of tech
+                t.setStaffMemberName(Name);
+                t.setStaffVacationDays(30);
                 ConnectionEstablish.connect();
                 Statement statement = con.createStatement();
-                String q = "Insert into  login (name,email,password,overtimeDays,VcationDays) VALUES( '"+name+"','" +"Tech"+name+ "@hospital.com','"+password+"','"+0+"','" + 30 + "')";
+                String q = "Insert into  login (name,email,password,overtimeDays,VcationDays) VALUES( '"+t.getStaffMemberName()+"','" +"Tech"+t.getStaffMemberName()+ "@hospital.com','"+password+"','"+0+"','" + t.getStaffVacationDays() + "')";
                 statement.executeUpdate(q);
                 AlertBox.display("Successful!","Tech added Successfully!");
             }

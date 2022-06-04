@@ -14,7 +14,7 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         HelloController controller = fxmlLoader.getController();
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Noha's Hospital");
+        stage.setTitle("Fawzy's Hospital");
         stage.setScene(scene);
         stage.getIcons().add(new Image("C:\\Users\\CHEHAB YAKOOT\\Desktop\\JavaCodes\\Project_OOP\\logo.jpeg"));
         stage.show();

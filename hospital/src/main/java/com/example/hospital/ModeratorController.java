@@ -8,11 +8,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
+
+import static com.example.hospital.ConnectionEstablish.con;
 
 public class ModeratorController implements Initializable {
     @Override
@@ -41,9 +46,28 @@ public class ModeratorController implements Initializable {
         stage.show();
     }
 
+    @FXML
+    public void removeMember(ActionEvent event) throws IOException {
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("DeleteMember.fxml"));
+        Parent moderatorScreen = fxmlLoader.load();
+        RemoveMemberController controller = fxmlLoader.getController();
+        Scene scene = new Scene(moderatorScreen);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     private String username;
     public void sendData(String username) {
         this.username = username;
+    }
+
+    @FXML
+    public void clickReset(ActionEvent event) throws IOException, SQLException {
+        ConnectionEstablish.connect();
+        Statement statement = con.createStatement();
+        String q ="update login set VcationDays= 30";
+        statement.executeUpdate(q);
+        AlertBox.display("Done","Reset complete!");
     }
 }
